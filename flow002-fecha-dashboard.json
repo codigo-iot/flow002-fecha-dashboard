@@ -1,0 +1,109 @@
+[
+    {
+        "id": "f5958955.432b9",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "42165e9a.163a28",
+        "type": "inject",
+        "z": "f5958955.432b9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "dfe21fb.ea9ec6"
+            ]
+        ]
+    },
+    {
+        "id": "262f1410.c2d534",
+        "type": "debug",
+        "z": "f5958955.432b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "dfe21fb.ea9ec6",
+        "type": "function",
+        "z": "f5958955.432b9",
+        "name": "",
+        "func": "var date = new Date(msg.payload);\n// Cambia el payload para que sea una fecha con formato\nmsg.payload = date.toString();\n// Regresa el mensaje para que se envíe al sigueinte nodo\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 40,
+        "wires": [
+            [
+                "262f1410.c2d534",
+                "f8f1c248.52092"
+            ]
+        ]
+    },
+    {
+        "id": "f8f1c248.52092",
+        "type": "ui_text",
+        "z": "f5958955.432b9",
+        "group": "9b54b950.22ac78",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Text - Name",
+        "label": "Fecha - label",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 530,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9b54b950.22ac78",
+        "type": "ui_group",
+        "name": "Fecha - Group",
+        "tab": "b43c80f1.b7f8f8",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "b43c80f1.b7f8f8",
+        "type": "ui_tab",
+        "name": "Fecha Flow002- Tab",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
